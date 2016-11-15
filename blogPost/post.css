@@ -1,0 +1,122 @@
+#diversityGraph {
+    overflow: overlay;
+}
+
+#diversityGraph img {
+    width:99.5%;
+    height:100%;
+    position:absolute;
+    top:0;
+    z-index: 50;
+    margin: auto;
+}
+
+#rankingSpot {
+    position: relative;
+}
+
+#rankingSpot img {
+    width:133px;
+    height:133px;
+    position:absolute;
+    top:0;
+    z-index: 50;
+}
+
+#badgeArea {
+    position: relative;
+    overflow: overlay;
+}
+
+#graphSpot {
+    overflow: overlay;
+    position: relative;
+    padding-top: 30px;
+}
+
+#graphSpot h2 {
+    text-align: center;
+}
+
+#graphSpot img {
+    width:99.5%;
+    height:99%;
+    position:absolute;
+    top:140px;
+}
+
+#showDesc {
+    position: absolute;
+    top:545px;
+    left:0;
+    width: 360px;
+    height: 405px;
+    margin: auto;
+}
+
+#movieDesc {
+    position: absolute;
+    top:545px;
+    right:0;
+    width: 360px;
+    height: 405px;
+}
+
+#descriptionSpot {
+    position: absolute;
+    width: 720px;
+    height: 70px;
+    top:0;
+    margin: auto;
+    text-align: center;
+}
+
+#popSpot {
+    position: absolute;
+    width: 720px;
+    height: 70px;
+    top:70;
+    margin: auto;
+    text-align: center;
+}
+
+.circle {
+    position: relative;
+    z-index: 20;
+    width: 133px;
+    height: 133px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background: black;
+    float: left;
+}
+
+.label {
+    position: relative;
+    margin: auto; 
+    top:25px;
+}
+
+.label p {
+    text-align: center;
+}
+
+.square {
+    position: relative;
+    width: 720px;
+    height: 405px;
+    overflow: overlay:
+    background: black;
+    margin: auto;
+}
+
+#squareColumn {
+    position: relative;
+    width: 720px;
+    height: 405px;
+    overflow: overlay:
+    background: black;
+    margin: auto;
+    padding-top: 30px;
+}

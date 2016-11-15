@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Creatural Diversity</title>
+        <link rel="stylesheet" href="post.css">
+        <script src="jquery-3.1.1.min.js"></script>
+        <script src="d3.min.js"></script>
+    </head>
+    <body>
+        <div id='introText'>
+            <h1>A Creatural Mosaic Ranked for Success</h1>
+            <p>Fangs out, claws protracted and transformations complete.  It's vampire versus werewolf and no one seems to know for sure who is going to come out the victor.
+
+It's an age-old question,  which to some may even be considered a clichéd concept, overly explored in shows and movies.  And while many have fallen victim to this infernal debate, I decided to look into which of these two creatures is favoured more by the public.  Then I asked myself, 'why limit your inquiry to only vampires and werewolves?'  Which is when I decided to broaden my scope and figure out how other supernatural beings compare against each other in terms of public opinion.
+
+</p>
+        </div>
+        <div id='diversityGraph'>
+            <h1>The Influence of Creatural Diversity on Supernatural Success</h1>
+            <p>I decided to start this project by  first defining some of the key concepts that I wante to explore.</p>
+            <p><strong><em>Supernatural drama: </em></strong>Including any non-comedic fictional, supernatural show</p>
+            <p><strong><em>Creatural diversity: </em>T</strong>he number of different types of supernatural creatures featured on the show</p>
+            <p><strong><em>High creatural diversity: </em></strong>Many types of creatures of different abilities</p>
+            <p><strong><em>Medium creatural diversity:  </em></strong>1-5 types of creatures of different abilities</p>
+            <p><strong><em>Low creatural diversity: </em></strong>1-3 types of creatures of relatively equal ability</p>
+            <p><strong><em>Success: </em></strong>Ratings on popular websites (e.g., IMDB), number of episodes, number of seasons, number of years running</p>
+            <p>After having defined the three different levels of creatural diversity I selected a total of 36 shows and 15 movies that would be divided equally among the three levels, such that each level had 12 shows and 5 movies.  </p>
+            
+            <h4>High Creatural Diversity (Level 1)</h4>
+            <p><em><strong>Shows: </strong></em>Angel, Buffy the Vampire Slayer, Charmed, Dark Shadows, Lost Girl, Merlin, Once Upon a Time, Penny Dreadful, Salem, Sanctuary, Shadowhunters, Supernatural</p>
+            <p><em><strong>Movies: </strong></em>Ella Enchanted, Halloweentown, Harry Potter and the Sorcerer's Stone, The Chronicles of Narnia The Lion the Witch and the Wardrobe, The Hobbit An Unexpected Journey</p>
+            
+            <h4>Medium Creatural Diversity (Level 2)</h4>
+            <p><em><strong>Shows: </strong></em>Being Human UK, Dr Who, Grimm, Hemlock Grove, Hercules, Star Trek Voyager, The Originals, Vampire Diaries, Torchwood, True Blood, Witches of East End, Xena</p>
+            <p><em><strong>Movies: </strong></em>Beetlejuice, Enchanted, Hocus Pocus, Pirates of the Carribbean The Curse of the Black Pearl, Twilight</p>
+            
+            <h4>Low Creatural Diversity (Level 3)</h4>
+            <p><em><strong>Shows: </strong></em>Bitten, Dead Like Me, Ghost Whisperer, Humans, iZombie, Medium, Moonlight, Roswell, Teen Wolf, The Secret Circle, The Walking Dead, V</p>
+            <p><em><strong>Movies: </strong></em>ET, Fright Night, Ghost, Interview with the Vampire, The Lost Boys</p>
+            
+            <p>The following graph depicts the relative imdb ratings of the shows and movies of each category, also taking into account the number of ratings for each.</p>
+
+            <div class='square'><img src="../visualizations/images/graphs/mockup/diversityGraph.jpg"></div>
+            
+            <p>While there does not seem to be much distinction between diversity levels one and two, diversity level three shows an interesting trend between the two groups.  It seems that, of the shows collected, shows with low creatural diversity are actually more favoured by the public vote, as oppose to the disadvantage of low creatural diversity seen in the movies collected.</p>
+        </div>
+        <div id="rankingSpot">
+            <h1>The Influence of Individual Creatures on Supernatural Success</h1>
+            <p>The following badges illustrate which supernatural beings appeared to be the most favoured among the 51 titles collected.</p>
+            <p>You can click on the individual badges to reveal further information on how shows and movies with that specific creature were rated, on average, compared to shows and movies without it.  Even though Each of the numbered values are out of 100, some of the values may appear smaller than expected because the number of people who rated were taken into consideration (see github link for more details).</p>
+        </div>
+        <div id="endText"><h1>Conclusions</h1></div>
+        
+        <script>
+        $(document).ready(function () {
+            
+            var imageSources = [
+                {title:"The Influence of the Undead on Supernatural Success", badgeSource:"../visualizations/images/ranking_icons/undeadBadge.png", creature:"Undead", ranking:"1st", graphSource:"../visualizations/images/graphs/mockup/undeadGraph.jpg", showsCollected:"Angel, Buffy the Vampire Slayer, Dark Shadows, iZombie, Once Upon a Time, Penny Dreadful, Supernatural, The Walking Dead, Witches of East End", moviesCollected:"Beetlejuice, Hocus Pocus, Pirates of the Carribbean The Curse of the Black Pearl", showsConclusion:"People tend to rate shows much better if they have undead characters.", moviesConclusion:"People tend to rate movies much better if they have undead characters.", popularity:"24% of the titles collected have undead characters."}, 
+
+                {title:"The Influence of Other Mystical Beings on Supernatural Success", badgeSource:"../visualizations/images/ranking_icons/othersBadge.png", creature:"Other mystical beings", ranking:"2nd", graphSource:"../visualizations/images/graphs/mockup/othersGraph.jpg", showsCollected:"Angel, Buffy the Vampire Slayer, Dark Shadows, iZombie, Once Upon a Time, Penny Dreadful, Supernatural, The Walking Dead, Witches of East End", moviesCollected:"Beetlejuice, Hocus Pocus, Pirates of the Carribbean The Curse of the Black Pearl", showsConclusion:"People don't seem to care if other mystical creatures are in the shows they watch.", moviesConclusion:"People tend to rate movies better if they have other mystical beings.", popularity:"22% of the titles collected have other mystical beings.", description:"Other mystical beings include giants, cyclopses, gnomes, elves, trolls and other similar creatures."}, 
+
+                {title:"The Influence of Witches, Warlocks & Wizards on Supernatural Success", badgeSource:"../visualizations/images/ranking_icons/witchBadge.png", creature:"Witches, warlocks & wizards", ranking:"3rd", graphSource:"../visualizations/images/graphs/mockup/witchGraph.jpg", showsCollected:"Angel, Buffy the Vampire Slayer, Charmed, Dark Shadows, Grimm, Hemlock Grove, Merlin, Salem, Supernatural, The Originals, The Secret Circle, The Vampire Diaries, True Blood, Witches of East End", moviesCollected:"Enchanted, Harry Potter and the Sorcerer's Stone, Hocus Pocus, The Chronicles of Narnia The Lion the Witch and the Wardrobe, The Hobbit An Unexpected Journey", showsConclusion:"People tend to rate shows a little better if they have witches, warlocks or wizards.", moviesConclusion:"People tend to rate movies better if they have witches, warlocks or wizards.", popularity:"37% of the titles collected have witches, warlocks & wizards"}, 
+
+                {title:"The Influence of Hybrids on Supernatural Success", badgeSource:"../visualizations/images/ranking_icons/hybridBadge.png", creature:"Hybrids", ranking:"4th", graphSource:"../visualizations/images/graphs/mockup/hybridGraph.jpg", showsCollected:"Dark Shadows, Grimm, Hemlock Grove, Hercules, Lost Girl, Once Upon a Time, Sanctuary, Shadowhunters, Teen Wolf, The Originals, The Vampire Diaries, Xena", moviesCollected:"Harry Potter and the Sorcerer's Stone, Pirates of the Carribbean The Curse of the Black Pearl", showsConclusion:"People tend to rate shows a little better if they don't have hybrids.", moviesConclusion:"People tend to rate movies a heck of a lot better if they have hybrids.", popularity:"27% of the titles collected have hybrids.", description:"Hybrids include creatures that are a combination of at least two different species, such as half-vampire-half-werewolf"}, 
+
+                {title:"The Influence of Animalistic Beings on Supernatural Success", badgeSource:"../visualizations/images/ranking_icons/animalisticBadge.png", creature:"Animalistic Beings", ranking:"5th", graphSource:"../visualizations/images/graphs/mockup/animalisticGraph.jpg", showsCollected:"Buffy the Vampire Slayer, Charmed, Lost Girl, Merlin, Once Upon a Time, Salem, Sanctuary, Supernatural", moviesCollected:"Narnia, Enchanted, Ella Enchanted, Harry Potter and the Sorcerer's Stone, Twilight", showsConclusion:"People tend to rate shows a little better if they have animalistic creatures.", moviesConclusion:"People tend to rate movies a little better if they don't have animalistic creatures.", popularity:"26% of the titles collected have animalistic beings.", description:"Animalistic creatures can include talking animals & enhanced animals (like the phoenix)"}, 
+
+                {title:"The Influence of Ghosts on Supernatural Success", badgeSource:"../visualizations/images/ranking_icons/ghostBadge.png", creature:"Ghosts", ranking:"6th", graphSource:"../visualizations/images/graphs/mockup/ghostGraph.jpg", showsCollected:"Angel, Being Human UK, Buffy the Vampire Slayer, Charmed, Dark Shadows, Dead Like Me, Ghost Whisperer, Medium, Once Upon a Time, Salem, Shadowhunters, Supernatural, The Originals, The Vampire Diaries, True Blood", moviesCollected:"Beetlejuice, Ghost, Harry Potter and the Sorcerer's Stone", showsConclusion:"People tend to rate shows a little better if they have ghosts.", moviesConclusion:"People tend to rate movies slightly better if they have ghosts.", popularity:"35% of the titles collected have ghosts."}, 
+
+                {title:"The Influence of Werewolves on Supernatural Success", badgeSource:"../visualizations/images/ranking_icons/werewolfBadge.png", creature:"Werewolves", ranking:"7th", graphSource:"../visualizations/images/graphs/mockup/werewolfGraph.jpg", showsCollected:"Being Human UK, Bitten, Buffy the Vampire Slayer, Dark Shadows, Hemlock Grove, Once Upon a Time, Penny Dreadful, Sanctuary, Shadowhunters, Supernatural, Teen Wolf, The Originals, The Vampire Diaries, True Blood", moviesCollected:"Twilight", showsConclusion:"People tend to rate shows a little better if they have werewolves.", moviesConclusion:"People tend to rate movies a little better if they don't have werewolves.", popularity:"29% of the titles collected have werewolves."}, 
+
+                {title:"The Influence of Gods & Higher Beings on Supernatural Success", badgeSource:"../visualizations/images/ranking_icons/godsBadge.png", creature:"Gods & higher beings", ranking:"8th", graphSource:"../visualizations/images/graphs/mockup/godGraph.jpg", showsCollected:"Buffy the Vampire Slayer, Charmed, Hercules, Penny Dreadful, Once Upon a Time, Salem, Supernatural, Xena", moviesCollected:"", showsConclusion:"People tend to rate shows a little better if they have gods or higher beings.", moviesConclusion:"", popularity:"16% of the titles collected have gods or higher beings.", description:"Gods and higher beings include roman gods, angels and similar creatures."}, 
+
+                {title:"The Influence of Immortals on Supernatural Success", badgeSource:"../visualizations/images/ranking_icons/immortalBadge.png", creature:"Immortals", ranking:"9th", graphSource:"../visualizations/images/graphs/mockup/immortalGraph.jpg", showsCollected:"Angel, Buffy the Vampire Slayer, Charmed, Dark Shadows, Dr Who, Hemlock Grove, Merlin, Supernatural, The Originals, The Vampire Diaries, Torchwood, Witches of East End", moviesCollected:"", showsConclusion:"People tend to rate shows a little better if they have immortals.", moviesConclusion:"", popularity:"24% of the titles collected have immortals."}, 
+
+                {title:"The Influence of Vampires on Supernatural Success", badgeSource:"../visualizations/images/ranking_icons/vampireBadge.png", creature:"Vampires", ranking:"10th", graphSource:"../visualizations/images/graphs/mockup/vampireGraph.jpg", showsCollected:"Being Human UK, Buffy the Vampire Slayer, Charmed, Dark Shadows, Lost Girl, Moonlight, Penny Dreadful, Sanctuary, Shadowhunters, Supernatural, The Originals, The Vampire Diaries, True Blood", moviesCollected:"Fright Night, Interview with the Vampire, The Lost Boys, Twilight Angel", showsConclusion:"People tend to rate shows a bit better if they have vampires.", moviesConclusion:"People tend to rate movies better if they have vampires.", popularity:"35% of the titles collected have vampires."}, 
+
+                {title:"The Influence of Demons on Supernatural Success", badgeSource:"../visualizations/images/ranking_icons/demonBadge.png", creature:"Demons", ranking:"11th", graphSource:"../visualizations/images/graphs/mockup/demonGraph.jpg", showsCollected:"Angel, Buffy the Vampire Slayer, Charmed, Penny Dreadful, Salem, Shadowhunters, Supernatural, Xena", moviesCollected:"Beetlejuice", showsConclusion:"People don't seem to care whether or not shows have demons.", moviesConclusion:"People tend to rate movies a little better if they don't have demons.", popularity:"18% of the titles collected have demons."},  
+
+                {title:"The Influence of Dragons on Supernatural Success", badgeSource:"../visualizations/images/ranking_icons/dragonBadge.png", creature:"Dragons", ranking:"12th", graphSource:"../visualizations/images/graphs/mockup/dragonGraph.jpg", showsCollected:"Lost Girl, Merlin, Once Upon a Time", moviesCollected:"Enchanted", showsConclusion:"People tend to rate shows slightly better if they have dragons.", moviesConclusion:"People tend to rate movies better if they don't have dragons.", popularity:"8% of the titles collected have dragons."}, 
+
+                {title:"The Influence of Aliens on Supernatural Success", badgeSource:"../visualizations/images/ranking_icons/alienBadge.png", creature:"Aliens", ranking:"12th", graphSource:"../visualizations/images/graphs/mockup/aliensGraph.jpg", showsCollected:"Dr Who, Roswell, Star Trek Voyager, Torchwood, V", moviesCollected:"ET", showsConclusion:"People tend to rate shows a little better if they don't have aliens.", moviesConclusion:"People tend to rate movies a little better if they have aliens.", popularity:"12% of the titles collected have aliens."}, 
+
+                {title:"The Influence of Shapeshifters on Supernatural Success", badgeSource:"../visualizations/images/ranking_icons/shapeshifterBadge.png", creature:"Shapeshifters", ranking:"14th", graphSource:"../visualizations/images/graphs/mockup/shapeshifterGraph.jpg", showsCollected:"Charmed, Lost Girl, True Blood, Witches of East End", moviesCollected:"", showsConclusion:"People tend to rate shows slightly better if they don't have shapeshifters.", moviesConclusion:"", popularity:"8% of the titles collected have shapeshifters."}, 
+
+                {title:"The Influence of Fairies on Supernatural Success", badgeSource:"../visualizations/images/ranking_icons/fairyBadge.png", creature:"Fairies", ranking:"15th", graphSource:"../visualizations/images/graphs/mockup/fairyGraph.jpg", showsCollected:"Charmed, Lost Girl, Merlin, Once Upon a Time, Sanctuary, Shadowhunters, True Blood", moviesCollected:"Ella Enchanted", showsConclusion:"People tend to rate shows slightly better if they don't have fairies.", moviesConclusion:"People tend to rate movies a lot better if they don't have fairies.", popularity:"16% of the titles collected have fairies."}, 
+
+                {title:"The Influence of Artificial Beings on Supernatural Success", badgeSource:"../visualizations/images/ranking_icons/artificialBadge.png", creature:"Artificial beings", ranking:"16th", graphSource:"../visualizations/images/graphs/mockup/artificialGraph.jpg", showsCollected:"Buffy the Vampire Slayer, Humans", moviesCollected:"", showsConclusion:"People tend to rate shows a little better if they have don't have artificial beings.", moviesConclusion:"", popularity:"4% of the titles collected have artificial beings."},
+
+                {title:"The Influence of Enhanced Humans on Supernatural Success", badgeSource:"../visualizations/images/ranking_icons/enhancedBadge.png", creature:"Enhanced humans", ranking:"17th", graphSource:"../visualizations/images/graphs/mockup/enhancedGraph.jpg", showsCollected:"Angel, Buffy the Vampire Slayer, Charmed, Dead Like Me, Hemlock Grove", moviesCollected:"", showsConclusion:"People tend to rate shows a bit better if they don't have enhanced humans.", moviesConclusion:"", popularity:"10% of the titles collected have enhanced humans.", description:"Enhanced humans can include characters who are human except for some additional supernatural ability (e.g., super-strength)"}
+            ]
+             
+            var circles = d3.select("#rankingSpot")
+                                        .append("div")
+                                        .attr("id", "badgeArea")
+                                        .selectAll("div")
+                                        .data(imageSources)
+                                        .enter()
+                                        .append("div")
+                                        .attr("class", "circle")
+                                        .on("mouseover", handleMouseOver)
+                                        .on("mouseout", handleMouseOut)
+                                        .on("click", handleMouseClick)
+                                        .append("div")
+                                        .attr("class", "label")
+                                        .append("p")
+                                        .text(function (d) {return d.creature})
+                                        .append("p")
+                                        .text(function (d) {return d.ranking});
+
+
+                        var badges = d3.select("#rankingSpot")
+                                        .selectAll(".circle")
+                                        .data(imageSources)
+                                        .append("img")
+                                        .attr("src", function (d) { return d.badgeSource; });
+
+
+                        function handleMouseOver(d) {
+                            $(this).find(".label").show();
+                            $(this).find("img").hide();
+                        };
+
+                        function handleMouseOut(d) {
+                            $(this).find(".label").hide();
+                            $(this).find("img").show();
+                        }
+
+                        function handleMouseClick(d) {
+
+                            //create the individual creature graph area
+                            d3.select("#rankingSpot")
+                            .append("div")
+                            .attr("id", "graphSpot")
+
+                            //clear any existing chart
+                            $('#graphSpot').html('')
+                            
+                            d3.select("#graphSpot")
+                            .append("h2")
+                            .text(d.title)
+                            
+                            //create graph column and popularity spot
+                            d3.select("#graphSpot")
+                            .append("div")
+                            .attr("id", "squareColumn")
+                            .append("p")
+                            .text(d.description)
+                            
+                            
+                            d3.select("#squareColumn")
+                            .append("div")
+                            .attr("id", "popSpot")
+                            .append("h5")
+                            .text(d.popularity)
+
+                            //add graph image
+                            d3.select("#squareColumn")
+                            .append("img")
+                            .attr("src", d.graphSource)
+
+                            //add shows info spot and show title list
+                            d3.select("#squareColumn")
+                            .append("div")
+                            .attr("id", "showDesc")
+                            .append("h4")
+                            .text("Shows with this creature: ")
+                            //add shows list
+                            d3.select("#showDesc")
+                            .append("p")
+                            .text(d.showsCollected)
+                            //add show conclusion title
+                            d3.select("#showDesc")
+                            .append("h4")
+                            .text("Conclusion")
+                            //add show conclusion
+                            d3.select("#showDesc")
+                            .append("p")
+                            .text(d.showsConclusion)
+
+                            //add movies info spot and movie title list
+                            d3.select("#squareColumn")
+                            .append("div")
+                            .attr("id", "movieDesc")
+                            .append("h4")
+                            .text("Movies with this creature: ")
+                            //add movies list
+                            d3.select("#movieDesc")
+                            .append("p")
+                            .text(d.moviesCollected)
+                            //add movie conclusion title
+                            d3.select("#movieDesc")
+                            .append("h4")
+                            .text("Conclusion")
+                            //add movie conclusion
+                            d3.select("#movieDesc")
+                            .append("p")
+                            .text(d.moviesConclusion);
+                        };             
+                    });
+            </script>
+    </body>
+</html>
